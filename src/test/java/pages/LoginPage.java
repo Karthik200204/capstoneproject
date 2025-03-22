@@ -11,6 +11,7 @@ public class LoginPage extends BaseClass {
     public By emailField = By.id("Email");
     public By passwordField = By.id("Password");
     public By loginButton = By.cssSelector("input.button-1.login-button");
+    //public By logoutButton= By.cssSelector(".ico-logout");
     
     public void loginUser() throws InterruptedException {
         driver.findElement(loginLink).click();

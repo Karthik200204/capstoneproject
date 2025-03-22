@@ -14,7 +14,7 @@ public class LoginTest extends BaseClass {
     @BeforeMethod
     @Parameters("browser")
     public void setUp(String browser) {
-    	initializeBrowser(browser);
+    	initializeBrowser("chrome");
         loginPage = new LoginPage();
     }
 

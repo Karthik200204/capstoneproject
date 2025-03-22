@@ -22,54 +22,78 @@ public class CartPage1 extends BaseClass {
     public By emailField = By.id("Email");
     public By passwordField = By.id("Password");
     public By loginButton = By.cssSelector("input.button-1.login-button");
+    //electronics
     public By Electronics = By.linkText("Electronics");
     public By cellphone = By.linkText("Cell phones");
     public By firstproduct = By.xpath("(//input[@class='button-2 product-box-add-to-cart-button'])[1]");
     public By secondproduct = By.xpath("(//input[@class='button-2 product-box-add-to-cart-button'])[2]");
     public By shoppingcart = By.linkText("Shopping cart");
+    //logout
+   public By logoutButton= By.cssSelector(".ico-logout");
     public void ElectronicsCategory() {
-    	
     	
          // Starting the report for extent report
         try {
-        	ReportManager.createTest("Registering");
-        	driver.findElement(registerLink).click();
-        	ReportManager.getTest().pass(" click register Successful");
-            driver.findElement(genderMale).click();
-            ReportManager.getTest().pass(" gender Successful");
-            driver.findElement(firstNameField).sendKeys(config.getProperty("firstname"));
-            ReportManager.getTest().pass(" firsrtname entered Successful");
-            driver.findElement(lastNameField).sendKeys(config.getProperty("lastname"));
-            ReportManager.getTest().pass(" Lastname entered Successful");
-            driver.findElement(emailField1).sendKeys(config.getProperty("email"));
-            ReportManager.getTest().pass(" email entered Successful");
-            driver.findElement(passwordField1).sendKeys(config.getProperty("password"));
-            ReportManager.getTest().pass(" password entered Successful");
-            driver.findElement(confirmPasswordField).sendKeys(config.getProperty("password"));
-            ReportManager.getTest().pass(" confirm password entered Successful");
-            driver.findElement(registerButton).click();
-            ReportManager.getTest().pass(" clicked on register Successful");
-            System.out.println("successfully registerd");
-        	ReportManager.createTest("log in");
-            driver.findElement(loginLink).click();
-            ReportManager.getTest().log(Status.INFO, "Clicked on Login link");
-            driver.findElement(emailField).sendKeys(config.getProperty("email"));
-            ReportManager.getTest().log(Status.INFO, "Entered Email");
-            driver.findElement(passwordField).sendKeys(config.getProperty("password"));
-            ReportManager.getTest().log(Status.INFO, "Entered Password");
-            driver.findElement(loginButton).click();
-            ReportManager.getTest().pass(" Login Successful");
-            ReportManager.createTest("Add Electronics to Cart");
-            driver.findElement(Electronics).click();
-            ReportManager.getTest().log(Status.INFO, "Navigated to Electronics Category");
-            driver.findElement(cellphone).click();
-            ReportManager.getTest().log(Status.INFO, "Selected 'Cell Phones' Category");
-            driver.findElement(firstproduct).click();
-            ReportManager.getTest().pass(" First Product Added to Cart");
-            driver.findElement(secondproduct).click();
-            ReportManager.getTest().pass("Second Product Added to Cart");
-            driver.findElement(shoppingcart).click();
-            ReportManager.getTest().pass("Successfully Entered Shopping Cart");
+			
+			  ReportManager.createTest("Registering");
+			  driver.findElement(registerLink).click();
+			  ReportManager.getTest().pass(" click register Successful");
+			  driver.findElement(genderMale).click();
+			  ReportManager.getTest().pass(" gender Successful");
+			  driver.findElement(firstNameField).sendKeys(config.getProperty("firstname"));
+			  ReportManager.getTest().pass(" firsrtname entered Successful");
+			  driver.findElement(lastNameField).sendKeys(config.getProperty("lastname"));
+			  ReportManager.getTest().pass(" Lastname entered Successful");
+			  driver.findElement(emailField1).sendKeys(config.getProperty("email"));
+			  ReportManager.getTest().pass(" email entered Successful");
+			  driver.findElement(passwordField1).sendKeys(config.getProperty("password"));
+			  ReportManager.getTest().pass(" password entered Successful");
+			  driver.findElement(confirmPasswordField).sendKeys(config.getProperty(
+			  "password"));
+			  ReportManager.getTest().pass(" confirm password entered Successful");
+			  driver.findElement(registerButton).click();
+			  ReportManager.getTest().pass(" clicked on register Successful");
+			  System.out.println("successfully registerd");
+			  
+			  
+			  ReportManager.createTest("log in"); 
+			  driver.findElement(loginLink).click();
+			  ReportManager.getTest().log(Status.INFO, "Clicked on Login link");
+			  driver.findElement(emailField).sendKeys(config.getProperty("email"));
+			  ReportManager.getTest().log(Status.INFO, "Entered Email");
+			  driver.findElement(passwordField).sendKeys(config.getProperty("password"));
+			  ReportManager.getTest().log(Status.INFO, "Entered Password");
+			  driver.findElement(loginButton).click();
+			  ReportManager.getTest().pass(" Login Successful");
+			  
+			  
+			  
+			  ReportManager.createTest("Add Electronics to Cart");
+			  driver.findElement(Electronics).click();
+			  ReportManager.getTest().log(Status.INFO,"Navigated to Electronics Category"); 
+			  driver.findElement(cellphone).click();
+			  ReportManager.getTest().log(Status.INFO, "Selected 'Cell Phones' Category");
+			  driver.findElement(firstproduct).click();
+			  ReportManager.getTest().pass(" First Product Added to Cart");
+			  driver.findElement(secondproduct).click();
+			  ReportManager.getTest().pass("Second Product Added to Cart");
+			  driver.findElement(shoppingcart).click();
+			  ReportManager.getTest().pass("Successfully Entered Shopping Cart");
+			 
+            
+				
+				  ReportManager.createTest("Invalid login data");
+				  driver.findElement(logoutButton).click();
+				  driver.findElement(loginLink).click();
+				  ReportManager.getTest().log(Status.INFO, "Clicked on Login link");
+				  driver.findElement(loginButton).click();
+				  ReportManager.getTest().pass(" Login Successful");
+				  //driver.findElement(logoutButton).click();
+				  ReportManager.getTest().pass(" Logout Successful");
+				 
+            
+            
+            
         } 
         //if try fail it gives an test failed message in catch
         catch (Exception e) {
